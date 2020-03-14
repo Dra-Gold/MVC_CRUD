@@ -1,0 +1,42 @@
+﻿@model List<WebApplication1.Models.ViewModels.ListaPersonaViewModels>
+@{
+    ViewBag.Title = "Mis Datos";
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="row" style="text-align:right;padding:5px;">
+    <a href="~/Persona/Nuevo" class="btn btn-primary">Nuevo</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th> #</th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Apellido
+                </th>
+                <th>
+                    Editar
+                </th>
+                <th>
+                    Eliminar
+                </th>
+            </tr>
+            @foreach(var  elemen in Model  )
+            {
+                <tr>
+                    <td>@elemen.Id</td>
+                    <td>@elemen.Nombre</td>
+                    <td>@elemen.Apellido</td>
+                    <td><a  class="btn btn-default" href="~/Persona/Editar/@elemen.Id">Editar</a></td>
+                    <td><a  class="btn btn-danger" href="~/Persona/Eliminar/@elemen.Id">Eliminar</a></td>
+                </tr>
+            }
+        </table>
+    </div>
+
+</div>
